@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Seleccionar Curso{% endblock %}
+{% block content %}
+<div class="container ">
+	<div class="row">
+		<div class="col-2">              </div>
+		<div class="col-8">
+			<form class="fondo text-center" method="post" action="{{ url_for('informar_asistencias') }}">
+                <h2 class="text-white">Informar Asistencia</h2>
+				<div class="form-floating mb-3">
+					<select name="curso" class="form-select" id="floatingSelect validationCustom04" aria-label="Floating label select example" required>
+						<option selected disabled value="">Seleccionar</option>
+						<option value= "{{ cursos[0].id }}"> Año: {{ cursos[0].anio }} Division: {{ cursos[0].division }}</option>
+						<option value= "{{ cursos[1].id }}"> Año: {{ cursos[1].anio }} Division: {{ cursos[1].division }}</option>
+					</select>
+					<label for="floatingSelect validationCustom04" class="form-label">Curso</label>
+				</div>
+				<button type="submit" class="btn btn-secondary mt-3">Aceptar</button>
+			</form>
+		</div>	
+		<div class="col-2">       </div>
+	</div>
+</div>
+
+{% endblock %}
+<!---->

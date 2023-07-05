@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+   }
+   body {
+    font-family: Arial, Helvetica, sans-serif;
+   }
+   header {
+    background-color: #666;
+    padding: 20px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+   }
+   .bg-navbar {
+    background-color: #1a3555;
+  }
+
+   section.banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.611), rgba(0, 0, 0, 0.822)), url(../static/images/banner2.jpg);
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: top left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  
+   article, form {
+    float: left;
+    padding: 20px;
+    width: 80%;
+    background-color: #f1f1f1;
+    height: 300px;
+   } 
+  
+   footer {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #1a3555;
+    height: 70px;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+   @media (max-width: 600px) {
+    nav, article { width: 100%;
+        height: auto;
+        }
+  } 
+  .fondo {
+    height: auto;
+    background-color: #122336cc;
+  }
+
+  .link {
+    text-decoration: none;
+    color: white;
+  }
+
+  .link:hover {
+    color: #79a8ddcc;
+  }
+  
+  li.vertical {
+    display: block;
+    margin: 0;
+    -ms-writing-mode: vertical;
+        writing-mode: vertical;
+    padding: 1rem 0;
+    font-size: large;
+    justify-content: center;
+    display: flex;
+    border-radius: 10%;
+    border-color: #224368cc;
+    
+  }
+  .tabla-asistencia {
+    background-color: #152538;
+    height: 100%;
+    width: 100%;
+  }

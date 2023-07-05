@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Preceptor{% endblock %}
+{% block content %}
+<section class="text-white pt-5" style="height:100%;">
+  <ul>
+    <li class="vertical">
+      <a class="link" href="{{ url_for('seleccion_asistencia', usuario_id=usuario.id) }}" >Registrar Asistencia</a>
+    </li>
+    <li class="vertical">
+      <a class="link" href="{{ url_for('seleccion_curso', usuario_id=usuario.id) }}">Informe con Detalles</a>
+    </li>
+  </ul>
+  
+</section>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Registrar Asistencia{% endblock %}
+{% block head %}
+<script>
+  function toggleJustificacion(estudianteId) {
+      var asistenciaSelect = document.getElementById('asistencia-' + estudianteId);
+      var justificacionInput = document.getElementById('justificacion-' + estudianteId);
+
+      if (asistenciaSelect.value === 's') {
+          justificacionInput.disabled = true;
+          justificacionInput.value = '';
+      } else {
+          justificacionInput.disabled = false;
+      }
+  }
+</script>
+{% endblock %}
+{% block content %}
+<section class=" text-white"></section>
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div class="fondo container text-white">
+        <h6>Fecha: {{ fecha }}</h6>
+        <br><h7>ID Curso: {{ curso}}</h7>
+        <br><h7>Tipo de Clase: {{ clase }}</h7>
+        <br><h7>Cantidad de Estudiantes: {{ estudiantes|length }}</h7>
+    </div>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-1">              </div>
+        <div class="col-10">
+          <form class="fondo text-center" method="post" action="{{ url_for('guardar_asistencia',fecha = fecha, curso_id = curso, clase = clase) }}">
+            <h2 class="text-white">Ingresar Asistencia</h2>
+            <table class="table text-white">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Asistencia</th>
+                  <th scope="col">Justificación</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for estudiante in estudiantes %}
+                  <tr>
+                      <td>{{ estudiante.id }}</td>
+                      <td>{{ estudiante.apellido }}</td>
+                      <td>{{ estudiante.nombre }}</td>
+                      <td>
+                        <select class="form-select" name="asistencia-{{ estudiante.id }}" id="asistencia-{{ estudiante.id }}" aria-label="Default select example" onchange="toggleJustificacion({{ estudiante.id }})" required>
+                          <option selected disabled value="">Seleccionar</option>
+                          <option value="s">Presente</option>
+                          <option value="n">Ausente</option>
+                        </select>
+                      </td>
+                      <td>
+                          <input type="text" id="justificacion-{{ estudiante.id }}" name="justificacion-{{ estudiante.id }}" placeholder="Justificación">
+                      </td>
+                        
+                  </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+            <button type="submit" class="btn btn-secondary mt-3">Guardar Asistencia</button>
+          </form>
+        </div>	
+        <div class="col-1">       </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-2"></div>
+</section>
+{% endblock %}

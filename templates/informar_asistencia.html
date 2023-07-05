@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Informe Asistencia{% endblock %}
+{% block content %}
+<section class="fondo text-white">
+  <div class="container ">
+    <div class="row">
+      <div class="col-1">              </div>
+      <div class="col-10">
+    
+        <h2 class="text-white">Informe Asistencia</h2>
+        <table class="table text-white">
+        <thead>
+            <tr>
+            <th scope="col">Estudiante</th>
+            <th scope="col">Aula Presente</th>
+            <th scope="col">Aula Just</th>
+            <th scope="col">Aula Injus</th>
+            <th scope="col">EF Presente</th>
+            <th scope="col">EF Just</th>
+            <th scope="col">EF Injus</th>
+            <th scope="col">Ausencias Totales</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dato in datos %}
+            <tr>
+                <td>{{ dato.estudiante.apellido }}, {{ dato.estudiante.nombre }}</td>
+                <td>{{ dato.presente_aula }}</td>
+                <td>{{ dato.ausente_aula_jus }}</td>
+                <td>{{ dato.ausente_aula_injus }}</td>
+                <td>{{ dato.presente_ef }}</td>
+                <td>{{ dato.ausente_ef_jus }}</td>
+                <td>{{ dato.ausente_ef_injus }}</td>
+                <td>{{ dato.total_ausencias }}</td>
+                    
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        
+      </div>	
+      <div class="col-1">       </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
